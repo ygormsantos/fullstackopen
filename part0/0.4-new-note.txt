@@ -1,0 +1,62 @@
+title 0.4: New Note
+
+note left of browser:
+user opens
+https://studies.cs.helsinki.fi/exampleapp/notes
+end note
+
+note over browser:
+the user types "some text"
+and hits send
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over server:
+the received note is
+added to the list of notes
+end note
+
+server-->browser: HTML status code 302 (URL redirect)
+
+note over browser:
+anoter request is sent to GET
+/exampleapp/notes
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML status code 200
+
+note over browser:
+the HTML is received
+(text/html; charset=utf-8)
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+
+note over browser:
+the main.css file is received
+(text/css; charset=utf-8)
+this file contains the CSS
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+note over browser:
+the main.js file is received
+(application/javascript; charset=UTF-8)
+this file contains cote to fetch all notes
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: JSON file content: [{"content":"mermaid-man","date":"2023-03-21T13:06:10.578Z"}, ...]
+
+note over browser:
+the browser will run the callback code
+to render the notes
+end note
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/favicon.ico
+server-->browser: favicon.ico
