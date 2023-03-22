@@ -1,0 +1,31 @@
+title 0.5: SPA
+
+note left of browser:
+user opens
+https://studies.cs.helsinki.fi/exampleapp/spa
+end note
+
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+server-->browser: status code 200 (The HTML document)
+
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: status code 200 (The CSS file)
+
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+server-->browser: status code 200 (The JavaScript file)
+
+note left of browser:
+the browser starts running the JavaScript code
+that fetches a JSON from the server
+end note
+
+browser->server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: status code 200 ([{"content":"te","date":"2023-03-22T16:05:59.850Z"},...)
+
+browser->server: GET https://studies.cs.helsinki.fi/favicon.ico
+server-->browser: status code 200 (favicon.ico)
+
+note over browser:
+the browser will run the callback code
+to render the notes
+end note
