@@ -1,0 +1,32 @@
+title 0.6: New Note SPA
+
+note left of browser:
+user opens
+https://studies.cs.helsinki.fi/exampleapp/spa
+end note
+
+note over browser:
+the user types "some text"
+and hits save
+end note
+
+note over browser:
+The JavaScript code fetched previously
+manipulataes the DOM to add the new note
+and renders the new list
+end note
+
+note over browser:
+the new note is sent as
+JSON to the server
+end note
+
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+note over server:
+the received note is
+added to the list of notes
+end note
+
+
+server-->browser: HTML status code 201 (created {"content": "some text","date": "2023-03-22T22:02:38.767Z"})
